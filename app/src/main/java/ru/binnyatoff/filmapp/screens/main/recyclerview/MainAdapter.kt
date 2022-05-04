@@ -1,4 +1,4 @@
-package ru.binnyatoff.filmapp.main
+package ru.binnyatoff.filmapp.screens.main.recyclerview
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
