@@ -1,6 +1,6 @@
-package ru.binnyatoff.filmapp.models
+package ru.binnyatoff.filmapp.data.network.models
 
-data class Films(
+data class Results(
     val byline: String,
     val critics_pick: Int,
     val date_updated: String,
@@ -11,7 +11,8 @@ data class Films(
     val multimedia: Multimedia,
     val opening_date: Any,
     val publication_date: String,
-    val summary_short: String
+    val summary_short: String,
+    val expanden: Boolean = false//main future
 )
 
 

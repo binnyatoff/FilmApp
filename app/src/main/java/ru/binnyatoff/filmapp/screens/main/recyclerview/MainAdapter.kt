@@ -3,8 +3,8 @@ package ru.binnyatoff.filmapp.screens.main.recyclerview
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
+import ru.binnyatoff.filmapp.Films
 import ru.binnyatoff.filmapp.R
-import ru.binnyatoff.filmapp.models.Films
 
 class MainAdapter : PagingDataAdapter<Films, MainViewHolder>(MainDiffUtils) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
@@ -17,5 +17,3 @@ class MainAdapter : PagingDataAdapter<Films, MainViewHolder>(MainDiffUtils) {
         holder.bind(getItem(position))
     }
 }
-
-

@@ -6,9 +6,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import ru.binnyatoff.filmapp.Constants
-import ru.binnyatoff.filmapp.retrofit.FilmService
-
+import ru.binnyatoff.filmapp.data.network.FilmService
 
 @Module
 class DataModule {
@@ -26,7 +24,7 @@ class DataModule {
 
     @Provides
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
-        .baseUrl(Constants.BASE_URL)
+        .baseUrl("https://api.nytimes.com/")
         .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
