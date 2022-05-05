@@ -2,11 +2,12 @@ package ru.binnyatoff.filmapp.screens.main.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import ru.binnyatoff.filmapp.retrofit.RetrofitApi
+import ru.binnyatoff.filmapp.retrofit.FilmService
+import javax.inject.Inject
 
-class MainViewModelFactory(val retrofitApi: RetrofitApi):ViewModelProvider.Factory {
+class MainViewModelFactory @Inject constructor(private val filmService: FilmService):ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         require(modelClass == MainViewModel::class.java)
-        return MainViewModel(retrofitApi = retrofitApi) as T
+        return MainViewModel(filmService) as T
     }
 }

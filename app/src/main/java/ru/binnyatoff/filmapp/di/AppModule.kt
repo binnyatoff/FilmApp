@@ -2,7 +2,7 @@ package ru.binnyatoff.filmapp.di
 
 import dagger.Module
 import dagger.Provides
-import ru.binnyatoff.filmapp.retrofit.RetrofitApi
+import ru.binnyatoff.filmapp.retrofit.FilmService
 import ru.binnyatoff.filmapp.screens.main.viewmodel.MainViewModelFactory
 import ru.binnyatoff.filmapp.screens.main.recyclerview.MainAdapter
 
@@ -10,12 +10,12 @@ import ru.binnyatoff.filmapp.screens.main.recyclerview.MainAdapter
 class AppModule {
 
     @Provides
-    fun provideMainViewModelFactory(retrofitApi: RetrofitApi): MainViewModelFactory {
-        return MainViewModelFactory(retrofitApi)
+    fun provideMainViewModelFactory(filmService: FilmService): MainViewModelFactory {
+        return MainViewModelFactory(filmService)
     }
 
     @Provides
-    fun povideMainAdapter(): MainAdapter {
+    fun provideMainAdapter(): MainAdapter {
         return MainAdapter()
     }
 }

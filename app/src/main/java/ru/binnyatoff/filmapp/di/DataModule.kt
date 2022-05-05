@@ -7,19 +7,22 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import ru.binnyatoff.filmapp.Constants
-import ru.binnyatoff.filmapp.retrofit.RetrofitApi
+import ru.binnyatoff.filmapp.retrofit.FilmService
+
 
 @Module
 class DataModule {
 
     @Provides
     fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor = HttpLoggingInterceptor().apply {
-        level = HttpLoggingInterceptor.Level.BASIC}
+        level = HttpLoggingInterceptor.Level.BASIC
+    }
 
     @Provides
-    fun provideOkHttpClient(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient = OkHttpClient.Builder()
-        .addInterceptor(httpLoggingInterceptor)
-        .build()
+    fun provideOkHttpClient(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient =
+        OkHttpClient.Builder()
+            .addInterceptor(httpLoggingInterceptor)
+            .build()
 
     @Provides
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
@@ -29,5 +32,6 @@ class DataModule {
         .build()
 
     @Provides
-    fun provideRetrofitApi(retrofit: Retrofit): RetrofitApi = retrofit.create(RetrofitApi::class.java)
+    fun provideFilmService(retrofit: Retrofit): FilmService =
+        retrofit.create(FilmService::class.java)
 }
