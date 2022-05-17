@@ -1,5 +1,6 @@
 package ru.binnyatoff.filmapp.data.network
 
+import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import retrofit2.HttpException
@@ -19,7 +20,8 @@ class FilmsPageSource (private val filmService: FilmService) : PagingSource<Int,
         try {
             val page: Int = params.key ?: 0
             val pageSize = PAGE_SIZE
-            val response = filmService.getFilms(api_key = BuildConfig.API_KEY, offset = page)
+            val response = filmService.getFilms(offset = page)
+            Log.e("TAG", response.toString())
 
             return if (response.isSuccessful) {
                // val results = checkNotNull(response.body()).results

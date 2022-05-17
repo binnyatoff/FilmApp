@@ -6,6 +6,7 @@ fun Results.toFilms(): Films{
     return Films(
         film_name = this.display_title,
         film_description = this.summary_short,
-        cover_url = this.multimedia.src
+        cover_url = this.multimedia.src,
+        expanded = false
     )
 }

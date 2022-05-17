@@ -6,6 +6,7 @@ import androidx.paging.PagingDataAdapter
 import ru.binnyatoff.filmapp.Films
 import ru.binnyatoff.filmapp.R
 
+
 class MainAdapter : PagingDataAdapter<Films, MainViewHolder>(MainDiffUtils) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -14,6 +15,11 @@ class MainAdapter : PagingDataAdapter<Films, MainViewHolder>(MainDiffUtils) {
     }
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        val films = getItem(position)
+        holder.bind(films)
+        //Допилить развертывание окна фильма
+        holder.itemView.setOnClickListener {
+            notifyItemChanged(position)
+        }
     }
 }
